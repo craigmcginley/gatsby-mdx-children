@@ -17,5 +17,22 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          posts: require.resolve("./src/components/posts-page-layout.js"),
+          default: require.resolve("./src/components/posts-page-layout.js")
+        },
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "posts",
+        path: `${__dirname}/content/`
+      }
+    },
   ],
 }
